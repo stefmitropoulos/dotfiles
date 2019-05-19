@@ -68,6 +68,8 @@ highlight Comment cterm=italic gui=italic
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+nnoremap <F5> :pastetoggle
+
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0 " do not save in insert mode
 
@@ -82,7 +84,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree.git'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'itchyny/lightline.vim'
-Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
