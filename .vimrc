@@ -27,7 +27,6 @@ set splitright                        " Open new splits to the right
 set splitbelow                        " Open new splits to the bottom
 set lazyredraw                        " Reduce the redraw frequency
 set ttyfast                           " Send more characters in fast
-set listchars+=precedes:←             " Show arrow if line continues
 set nobackup nowritebackup noswapfile " Turn off backup files
 set noerrorbells novisualbell         " Turn off visual and audible bells
 set expandtab shiftwidth=2 tabstop=2  " Two spaces for tabs everywhere
@@ -86,8 +85,12 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'reedes/vim-wordy'
+
 
 " Initialize plugin system
 call plug#end()
 
 map <F2> :setlocal spell! spelllang=en_gb<CR>
+map <F3> :NextWordy<CR>
+map <F4> :PrevWordy<CR>
