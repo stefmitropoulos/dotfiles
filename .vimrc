@@ -105,8 +105,9 @@ func! WordProcessorMode()
  set formatprg=par
  setlocal wrap
  setlocal linebreak
-map <F3> :NextWordy<CR>
-map <F4> :PrevWordy<CR>
-endfu
+ set textwidth=80
+ map <F3> :NextWordy<CR>
+ map <F4> :PrevWordy<CR>
+ endfu
 com! WP call WordProcessorMode()
 
