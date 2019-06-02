@@ -11,9 +11,6 @@ autocmd VimEnter * NERDTree
  " Go to previous (last accessed) window.
 autocmd VimEnter * wincmd p
 
- " CtrlP use FZF (faster!)
-nnoremap <C-p> :Files<Cr>
-
 syntax on
 autocmd Filetype scss if getfsize(@%) > 300 | setlocal syntax=OFF | endif
 
@@ -67,6 +64,9 @@ highlight Comment cterm=italic gui=italic
 nnoremap <C-Left> :tabprevious<CR>
 nnoremap <C-Right> :tabnext<CR>
 
+ " CtrlP use FZF (faster!)
+nnoremap <C-p> :Files<Cr>
+
 set pastetoggle=<F10>
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -92,5 +92,21 @@ Plug 'reedes/vim-wordy'
 call plug#end()
 
 map <F2> :setlocal spell! spelllang=en_gb<CR>
+
+
+" Word Processing Function!
+func! WordProcessorMode()
+ setlocal formatoptions=1
+ setlocal noexpandtab
+ map j gj
+ map k gk
+ setlocal spell spelllang=en_gb
+ set complete+=s
+ set formatprg=par
+ setlocal wrap
+ setlocal linebreak
 map <F3> :NextWordy<CR>
 map <F4> :PrevWordy<CR>
+endfu
+com! WP call WordProcessorMode()
+
