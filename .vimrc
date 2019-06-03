@@ -86,18 +86,20 @@ Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'reedes/vim-wordy'
-
+Plug 'Ron89/thesaurus_query.vim'
+Plug 'junegunn/limelight.vim'
 
 " Initialize plugin system
 call plug#end()
 
 map <F2> :setlocal spell! spelllang=en_gb<CR>
-
+map <F5> :ThesaurusQueryReplaceCurrentWord<CR>
+map <F3> :WP<CR>
 
 " Word Processing Function!
 func! WordProcessorMode()
- setlocal formatoptions=1
  setlocal noexpandtab
+ execute "Limelight 0.5"
  map j gj
  map k gk
  setlocal spell spelllang=en_gb
@@ -105,9 +107,9 @@ func! WordProcessorMode()
  set formatprg=par
  setlocal wrap
  setlocal linebreak
- set textwidth=80
- map <F3> :NextWordy<CR>
- map <F4> :PrevWordy<CR>
+ set textwidth=79
+ set fo+=t
+ set fo-=l
  endfu
 com! WP call WordProcessorMode()
 
